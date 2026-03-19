@@ -1,65 +1,80 @@
-import Image from "next/image";
+"use client";
+
+var loyihalar = [
+  {
+    id: 1,
+    kun: "01",
+    nomi: "Qarz Kalkulyatori",
+    tavsif: "Oylik to'lov, foiz va jami summani hisoblang",
+    kategoriya: "Tool",
+    rang: "cyan",
+    tayyor: true,
+    link: "/loyihalar/qarz-kalkulyatori",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <main style={{minHeight:"100vh", background:"#0a0a0f", color:"white"}}>
+      <div style={{maxWidth:"1100px", margin:"0 auto", padding:"64px 24px"}}>
+
+        <div style={{textAlign:"center", marginBottom:"64px"}}>
+          <p style={{fontFamily:"monospace", fontSize:"11px", letterSpacing:"6px", color:"#e8b84b", textTransform:"uppercase", marginBottom:"16px"}}>
+            Zarafshon Dasturchilari
+          </p>
+          <h1 style={{fontSize:"48px", fontWeight:"bold", marginBottom:"16px"}}>
+            30 Kunlik Loyihalar
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p style={{color:"#9ca3af", fontFamily:"monospace", fontSize:"14px"}}>
+            Har kuni yangi loyiha — ishlatib ko'ring
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))", gap:"20px"}}>
+          {loyihalar.map(function(l) {
+            var cardStyle = {
+              background:"#1a1a26",
+              border:"1px solid #2a2a3e",
+              borderRadius:"16px",
+              padding:"24px",
+              textDecoration:"none",
+              color:"white",
+              display:"block",
+              transition:"transform 0.2s",
+            };
+            var badgeStyle = {
+              fontSize:"10px",
+              padding:"3px 10px",
+              borderRadius:"100px",
+              fontFamily:"monospace",
+              fontWeight:"600",
+              background:"#164e63",
+              color:"#67e8f9",
+            };
+            return (
+              <a key={l.id} href={l.tayyor ? l.link : "#"} style={cardStyle}
+                onMouseEnter={function(e){ e.currentTarget.style.transform="translateY(-4px)"; }}
+                onMouseLeave={function(e){ e.currentTarget.style.transform="translateY(0)"; }}
+              >
+                <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"16px"}}>
+                  <span style={{fontFamily:"monospace", fontSize:"11px", color:"#6b7280"}}>KUN {l.kun}</span>
+                  <span style={badgeStyle}>{l.kategoriya}</span>
+                </div>
+                <h2 style={{fontSize:"15px", fontWeight:"600", marginBottom:"8px"}}>{l.nomi}</h2>
+                <p style={{color:"#9ca3af", fontSize:"13px", lineHeight:"1.6", marginBottom:"16px"}}>{l.tavsif}</p>
+                <div style={{fontFamily:"monospace", fontSize:"11px", color:"#6b7280"}}>
+                  {l.tayyor ? "▶ Ko'rish" : "⏳ Tez kunda"}
+                </div>
+              </a>
+            );
+          })}
         </div>
-      </main>
-    </div>
+
+        <div style={{textAlign:"center", marginTop:"80px", color:"#374151", fontFamily:"monospace", fontSize:"11px", letterSpacing:"4px"}}>
+          ZARAFSHON DASTURCHILARI · 2025
+        </div>
+
+      </div>
+    </main>
   );
 }
