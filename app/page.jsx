@@ -21,6 +21,16 @@ var loyihalar = [
     tayyor: true,
     link: "/loyihalar/vaqt-hisoblagich",
   },
+  {
+  id: 3,
+  kun: "03",
+  nomi: "Valyuta Konvertor",
+  tavsif: "Real vaqtda UZS, USD, EUR, RUB, GBP kurslari",
+  kategoriya: "Tool",
+  rang: "#22d3ee",
+  tayyor: true,
+  link: "/loyihalar/kurs",
+},
 ];
 
 function Karta(props) {
