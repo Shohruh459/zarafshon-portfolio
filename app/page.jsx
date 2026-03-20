@@ -31,6 +31,16 @@ var loyihalar = [
   tayyor: true,
   link: "/loyihalar/kurs",
 },
+{
+  id: 4,
+  kun: "04",
+  nomi: "Emoji So'z O'yini",
+  tavsif: "Emojiga qarab o'zbek so'zini toping!",
+  kategoriya: "O'yin",
+  rang: "#f87171",
+  tayyor: true,
+  link: "/loyihalar/emoji-oyin",
+},
 ];
 
 function Karta(props) {
