@@ -11,6 +11,16 @@ var loyihalar = [
     tayyor: true,
     link: "/loyihalar/qarz-kalkulyatori",
   },
+  {
+    id: 2,
+    kun: "02",
+    nomi: "Vaqt Hisoblagich",
+    tavsif: "Daromad, xarajat va sof foydangizni hisoblang",
+    kategoriya: "Tool",
+    rang: "#22d3ee",
+    tayyor: true,
+    link: "/loyihalar/vaqt-hisoblagich",
+  },
 ];
 
 function Karta(props) {
@@ -108,7 +118,7 @@ export default function Home() {
         </div>
 
         <div style={{textAlign:"center", marginTop:"100px", paddingTop:"40px", borderTop:"1px solid rgba(255,255,255,0.05)", fontFamily:"monospace", fontSize:"11px", color:"#374151", letterSpacing:"4px", textTransform:"uppercase"}}>
-          Zarafshon Dasturchilari · 2025 · Buxoro, O'zbekiston
+          Zarafshon Dasturchilari · 2026 · Navoiy, O'zbekiston
         </div>
 
       </div>
